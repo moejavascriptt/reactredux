@@ -1,5 +1,5 @@
-import store from './store'
-import { addTask, removeTask, completedTask } from './action'
+import store from './configureStore'
+import { addTask, removeTask, completedTask, fetchTodo } from './action'
 
 const unsubscribe = store.subscribe(() => {
   console.log('Updated', store.getState())
@@ -13,6 +13,7 @@ unsubscribe()
 store.dispatch(completedTask(2))
 
 store.dispatch(removeTask(1))
+store.dispatch(fetchTodo())
 console.log(store.getState())
 
 // const employee = { name: 'Harley', age: 22, company: 'Canada', city: 'Toronto' }
